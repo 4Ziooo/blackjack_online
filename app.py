@@ -13,6 +13,8 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = APP_SECRET
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode="threading")
 
+init_db()
+
 # ---------------- DB ----------------
 def db():
     con = sqlite3.connect(DB_PATH)
