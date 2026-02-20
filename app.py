@@ -11,7 +11,7 @@ DB_PATH = os.environ.get("DB_PATH", "blackjack.db")
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = APP_SECRET
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode=ASYNC_MODE)
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode="threading")
 
 # ---------------- DB ----------------
 def db():
