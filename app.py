@@ -7,7 +7,7 @@ from flask_socketio import SocketIO, emit, join_room, leave_room
 from werkzeug.security import generate_password_hash, check_password_hash
 
 APP_SECRET = os.environ.get("APP_SECRET", "dev_secret_change_me")
-DB_PATH = os.environ.get("DB_PATH", "blackjack.db")
+DB_PATH = os.environ.get("DB_PATH", "/tmp/blackjack.db")
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = APP_SECRET
