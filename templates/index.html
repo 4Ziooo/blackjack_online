@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blackjack Online</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>🃏 Blackjack Online</h1>
+      <div class="me" id="meLine">Giriş yapmadın</div>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Giriş / Kayıt</h2>
+        <div class="row">
+          <input id="u" placeholder="Kullanıcı adı" />
+          <input id="p" type="password" placeholder="Şifre" />
+        </div>
+        <div class="row">
+          <button id="btnLogin">Giriş</button>
+          <button class="ghost" id="btnReg">Kayıt</button>
+        </div>
+        <div class="hint" id="authMsg"></div>
+      </div>
+
+      <div class="card">
+        <h2>Oda Listesi</h2>
+        <div class="sub">Giriş yaptıktan sonra listelenir.</div>
+        <div id="rooms" class="rooms"></div>
+        <div class="row">
+          <input id="room" placeholder="ODA KODU (örn: TEKIN)" />
+          <button id="btnCreate">Oluştur</button>
+          <button class="ghost" id="btnJoin">Katıl</button>
+          <button class="ghost" id="btnLeave">Çık</button>
+        </div>
+        <div class="hint" id="roomMsg"></div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Dealer 🤖</h2>
+        <div id="dealerHand" class="hand"></div>
+        <div class="sub" id="dealerVal"></div>
+      </div>
+
+      <div class="card">
+        <h2>Kontroller</h2>
+        <div class="sub" id="phaseLine">Durum: -</div>
+
+        <div class="row">
+          <input id="bet" type="number" min="1" step="10" placeholder="Bahis (chip)" />
+          <button id="btnReady">Bahis/Ready</button>
+        </div>
+
+        <div class="row">
+          <button id="btnStartRound">Turu Başlat (host)</button>
+          <button class="ghost" id="btnNextRound">Yeni Tur (host)</button>
+        </div>
+
+        <div class="row">
+          <button id="btnHit">Hit</button>
+          <button class="ghost" id="btnStand">Stand</button>
+          <button class="ghost" id="btnDouble">Double</button>
+          <button class="ghost" id="btnSplit">Split</button>
+        </div>
+
+        <div class="row">
+          <input id="ins" type="number" min="0" step="10" placeholder="Insurance (opsiyonel)" />
+          <button class="ghost" id="btnIns">Insurance Al</button>
+        </div>
+
+        <div class="hint" id="toast"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Oyuncular</h2>
+      <div id="players"></div>
+    </section>
+
+    <section class="card">
+      <h2>Sohbet / Oyun Günlüğü</h2>
+      <div id="logs" class="logs"></div>
+      <div class="row">
+        <input id="chat" placeholder="mesaj..." />
+        <button id="btnChat">Gönder</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
